@@ -33,9 +33,10 @@ jobs:
       #     github_token: ${{ secrets.GITHUB_TOKEN }}
       #     publish_dir: ./dist
       - name: 发布
-        uses: sebastianpopp/ftp-action@releases/v2
+        uses: airvzxf/ftp-deployment-action@latest
         with:
-          host: ${{ secrets.FTP_HOST }}
+          server: ${{ secrets.FTP_HOST }}
           user: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          localDir: "dist"
+          local_dir: "./dist"
+          delete: "true"
