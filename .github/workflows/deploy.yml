@@ -38,4 +38,4 @@ jobs:
           server: meizhi.info
           username: ftp_mz
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./dist
+          local-dir: ./dist/
