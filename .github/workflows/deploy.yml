@@ -25,10 +25,17 @@ jobs:
         run: yarn install
       - name: 编译
         run: yarn run build
-      - name: 更新CNAME
-        run: cp CNAME dist/CNAME
+      # - name: 更新CNAME
+      #   run: cp CNAME dist/CNAME
+      # - name: 发布
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     publish_dir: ./dist
       - name: 发布
-        uses: peaceiris/actions-gh-pages@v3
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          server: meizhi.info
+          username: ftp_mz
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./dist
