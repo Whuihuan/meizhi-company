@@ -33,9 +33,9 @@ jobs:
       #     github_token: ${{ secrets.GITHUB_TOKEN }}
       #     publish_dir: ./dist
       - name: 发布
-        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        uses: sebastianpopp/ftp-action@releases/v2
         with:
-          server: meizhi.info
-          username: ftp_mz
+          host: ${{ secrets.FTP_HOST }}
+          user: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./dist/
+          localDir: "dist"
